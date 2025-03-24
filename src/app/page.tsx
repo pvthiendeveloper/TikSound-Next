@@ -1,12 +1,12 @@
-import HeroSection from "@/components/HeroSection";
-import FeatureSection from "@/components/FeatureSection";
-import UserSection from "@/components/UserSection";
-import PreviewSection from "@/components/PreviewSection";
 import CTASection from "@/components/CTASection";
-import Navbar from "@/components/Navbar";
+import FeatureSection from "@/components/FeatureSection";
 import Footer from "@/components/Footer";
+import HeroSection from "@/components/HeroSection";
 import MobileAppPreview from "@/components/MobileAppPreview";
+import Navbar from "@/components/Navbar";
+import PreviewSection from "@/components/PreviewSection";
 import SoundDetailPreview from "@/components/SoundDetailPreview";
+import UserSection from "@/components/UserSection";
 
 export default function Home() {
   return (
