@@ -1,19 +1,28 @@
 "use client";
 
 import { useState } from "react";
+import { submitToWaitlist } from '@/lib/waitlist';
 
 export default function CTASection() {
   const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement actual waitlist submission logic here
-    console.log("Email submitted:", email);
-    setIsSubmitted(true);
-    setEmail("");
-    // Reset submission status after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000);
+    setIsSubmitting(true);
+    
+    try {
+      await submitToWaitlist(email);
+      setIsSubmitted(true);
+      setEmail("");
+      // Reset submission status after 3 seconds
+      setTimeout(() => setIsSubmitted(false), 3000);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -75,13 +84,15 @@ export default function CTASection() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
                 required
-                className="flex-grow px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/50 text-white placeholder-gray-400 outline-none transition-colors"
+                disabled={isSubmitting}
+                className="flex-grow px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/50 text-white placeholder-gray-400 outline-none transition-colors disabled:opacity-50"
               />
               <button
                 type="submit"
-                className="bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 transition-opacity px-6 py-3 rounded-lg text-white font-semibold whitespace-nowrap"
+                disabled={isSubmitting}
+                className="bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 transition-opacity px-6 py-3 rounded-lg text-white font-semibold whitespace-nowrap disabled:opacity-50"
               >
-                Join Waitlist
+                {isSubmitting ? 'Joining...' : 'Join Waitlist'}
               </button>
             </form>
 

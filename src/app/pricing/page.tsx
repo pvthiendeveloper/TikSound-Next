@@ -1,27 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">(
     "yearly"
   );
-  const [email, setEmail] = useState("");
-  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent, plan: string) => {
-    e.preventDefault();
-    // TODO: Implement actual waitlist submission logic here
-    console.log("Email submitted:", email, "Plan:", plan);
-    setIsSubmitted(true);
-    setEmail("");
-    // Reset submission status after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000);
-  };
 
   const plans = [
     {

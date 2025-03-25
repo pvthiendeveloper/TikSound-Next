@@ -117,9 +117,9 @@ export default function WaitlistForm() {
         )}
 
         <p className="text-xs text-center text-gray-500 mt-4">
-          We'll notify you when TikSound is ready for you to explore.
+          We&apos;ll notify you when TikSound is ready for you to explore.
           <br />
-          No spam, ever. That's a promise!
+          No spam, ever. That&apos;s a promise!
         </p>
       </form>
     </div>

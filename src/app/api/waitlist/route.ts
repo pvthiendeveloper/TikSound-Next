@@ -45,9 +45,9 @@ export async function POST(request: Request) {
           
           <h2 style="color: #f472b6; margin-top: 0;">Welcome to the Waitlist!</h2>
           
-          <p>Thank you for joining the TikSound waitlist! We're thrilled to have you on board.</p>
+          <p style="color: white;">Thank you for joining the TikSound waitlist! We're thrilled to have you on board.</p>
           
-          <p>We're working hard to build the ultimate platform for TikTok sound discovery and management. You'll be among the first to know when we launch.</p>
+          <p style="color: white;">We're working hard to build the ultimate platform for TikTok sound discovery and management. You'll be among the first to know when we launch.</p>
           
           <div style="background: linear-gradient(to right, #f472b6, #9333ea); padding: 20px; border-radius: 10px; margin: 30px 0; text-align: center;">
             <h3 style="margin-top: 0; color: white;">What's next?</h3>
@@ -57,9 +57,9 @@ export async function POST(request: Request) {
           <p>In the meantime, follow us on social media for updates and sneak peeks:</p>
           
           <div style="text-align: center; margin: 20px 0;">
-            <a href="https://twitter.com/tiksound" style="color: #f472b6; text-decoration: none; margin: 0 10px;">Twitter</a>
-            <a href="https://instagram.com/tiksound" style="color: #f472b6; text-decoration: none; margin: 0 10px;">Instagram</a>
-            <a href="https://tiktok.com/@tiksound" style="color: #f472b6; text-decoration: none; margin: 0 10px;">TikTok</a>
+            <a href="${appUrl}" style="color: #f472b6; text-decoration: none; margin: 0 10px;">Website</a>
+            <a href="${appUrl}" style="color: #f472b6; text-decoration: none; margin: 0 10px;">Instagram</a>
+            <a href="${appUrl}" style="color: #f472b6; text-decoration: none; margin: 0 10px;">TikTok</a>
           </div>
           
           <p style="text-align: center; margin-top: 40px; font-size: 12px; color: #888888;">
