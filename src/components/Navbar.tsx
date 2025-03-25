@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
   const [email, setEmail] = useState("");
@@ -24,169 +25,124 @@ export default function Navbar() {
   };
 
   return (
-    <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link href="/" className="flex items-center gap-2">
-                <Image
-                  src="/next.svg"
-                  alt="TikSound Logo"
-                  width={32}
-                  height={32}
-                  className="dark:invert"
-                />
-                <span className="text-white text-xl font-bold">TikSound</span>
-              </Link>
-            </div>
+    <header className="w-full fixed top-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/icon.png"
+              alt="TikSound Logo"
+              width={32}
+              height={32}
+              className="w-8 h-8"
+            />
+            <span className="text-white font-bold text-xl">TikSound</span>
+          </Link>
 
-            <div className="hidden md:flex items-center space-x-6">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            <Link
+              href="/features"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              Features
+            </Link>
+            <Link
+              href="/pricing"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              Pricing
+            </Link>
+            <Link
+              href="/blog"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              Blog
+            </Link>
+            <Link
+              href="/support"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              Support
+            </Link>
+          </nav>
+
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden text-gray-300 hover:text-white"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden py-4 border-t border-white/10">
+            <nav className="flex flex-col space-y-4">
               <Link
                 href="/features"
                 className="text-gray-300 hover:text-white transition-colors"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Features
               </Link>
               <Link
                 href="/pricing"
                 className="text-gray-300 hover:text-white transition-colors"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Pricing
               </Link>
               <Link
-                href="/support"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                Support
-              </Link>
-              <Link
                 href="/blog"
                 className="text-gray-300 hover:text-white transition-colors"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Blog
               </Link>
-            </div>
-
-            <div className="hidden md:flex items-center">
-              <button
-                onClick={() => setShowWaitlistModal(true)}
-                className="bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 transition-opacity px-5 py-2 rounded-full text-white font-medium flex items-center"
+              <Link
+                href="/support"
+                className="text-gray-300 hover:text-white transition-colors"
+                onClick={() => setIsMenuOpen(false)}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                  />
-                </svg>
-                Join Waitlist
-              </button>
-            </div>
-
-            <button
-              className="md:hidden text-white"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  />
-                </svg>
-              )}
-            </button>
+                Support
+              </Link>
+            </nav>
           </div>
-
-          {/* Mobile menu */}
-          {mobileMenuOpen && (
-            <div className="md:hidden py-4 border-t border-white/10">
-              <div className="flex flex-col space-y-4">
-                <Link
-                  href="/features"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Features
-                </Link>
-                <Link
-                  href="/pricing"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Pricing
-                </Link>
-                <Link
-                  href="/support"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Support
-                </Link>
-                <Link
-                  href="/blog"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Blog
-                </Link>
-                <div className="pt-4 border-t border-white/10">
-                  <button
-                    onClick={() => {
-                      setShowWaitlistModal(true);
-                      setMobileMenuOpen(false);
-                    }}
-                    className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 transition-opacity px-4 py-2 rounded-full text-white font-medium flex items-center justify-center"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4 mr-2"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                      />
-                    </svg>
-                    Join Waitlist
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </nav>
+        )}
+      </div>
 
       {/* Waitlist Modal */}
       {showWaitlistModal && (
@@ -306,6 +262,6 @@ export default function Navbar() {
           </div>
         </div>
       )}
-    </>
+    </header>
   );
 }

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function MobileAppPreview() {
   return (
-    <section className="w-full py-12 bg-[#0E0E0E] text-white">
+    <section id="mobile-app" className="w-full py-12 bg-[#0E0E0E] text-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row items-center justify-center gap-12">
           <div className="md:w-1/2 lg:w-1/3">

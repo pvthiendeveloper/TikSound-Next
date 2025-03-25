@@ -1,6 +1,6 @@
 export default function UserSection() {
   return (
-    <section className="w-full py-20 bg-[#0A0A0A] text-white">
+    <section id="for-creators" className="w-full py-20 bg-[#0A0A0A] text-white">
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
           Made For Creators Like You

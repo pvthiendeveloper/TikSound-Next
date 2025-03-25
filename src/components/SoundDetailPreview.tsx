@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function SoundDetailPreview() {
   return (
-    <section className="w-full py-16 bg-[#0A0A0A] text-white">
+    <section id="sound-detail" className="w-full py-16 bg-[#0A0A0A] text-white">
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-600">
