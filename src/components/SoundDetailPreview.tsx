@@ -20,7 +20,7 @@ export default function SoundDetailPreview() {
           <div className="md:w-1/2 lg:w-1/3">
             <div className="relative mx-auto w-[280px] h-[580px] rounded-[40px] overflow-hidden border-8 border-[#222] shadow-2xl">
               <Image
-                src="/screenshots/app-result-screen.png"
+                src="/screenshots/import-result-screen.png"
                 alt="TikSound Sound Detail"
                 width={280}
                 height={580}

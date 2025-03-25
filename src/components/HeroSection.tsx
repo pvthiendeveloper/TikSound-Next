@@ -135,7 +135,7 @@ export default function HeroSection() {
             <div className="hidden md:block relative z-10 transform -translate-y-2 -translate-x-4">
               <div className="relative w-[120px] h-[250px] rounded-[20px] overflow-hidden border-4 border-[#222] shadow-xl transform -rotate-12">
                 <Image
-                  src="/screenshots/app-result-screen.png"
+                  src="/screenshots/import-result-screen.png"
                   alt="TikSound Result Screen"
                   fill
                   className="object-cover"
@@ -147,7 +147,7 @@ export default function HeroSection() {
             <div className="relative z-20 transform -translate-y-5">
               <div className="relative w-[160px] h-[330px] rounded-[28px] overflow-hidden border-6 border-[#222] shadow-xl transform -rotate-6">
                 <Image
-                  src="/screenshots/app-my-sounds-screen.png"
+                  src="/screenshots/my-sound-screen.png"
                   alt="TikSound Library"
                   fill
                   className="object-cover"
@@ -159,7 +159,7 @@ export default function HeroSection() {
             <div className="relative z-30 mx-1 md:mx-3">
               <div className="relative w-[220px] md:w-[280px] h-[460px] md:h-[580px] rounded-[40px] overflow-hidden border-8 border-[#222] shadow-2xl">
                 <Image
-                  src="/screenshots/app-home-screen.png"
+                  src="/screenshots/home-screen.png"
                   alt="TikSound Home Screen"
                   fill
                   className="object-cover"
@@ -173,7 +173,7 @@ export default function HeroSection() {
             <div className="relative z-20 transform -translate-y-5">
               <div className="relative w-[160px] h-[330px] rounded-[28px] overflow-hidden border-6 border-[#222] shadow-xl transform rotate-6">
                 <Image
-                  src="/screenshots/app-import-sound-screen.png"
+                  src="/screenshots/import-sound-screen.png"
                   alt="TikSound Import Feature"
                   fill
                   className="object-cover"
@@ -185,7 +185,7 @@ export default function HeroSection() {
             <div className="hidden md:block relative z-10 transform -translate-y-2 translate-x-4">
               <div className="relative w-[120px] h-[250px] rounded-[20px] overflow-hidden border-4 border-[#222] shadow-xl transform rotate-12">
                 <Image
-                  src="/screenshots/app-play-screen.png"
+                  src="/screenshots/sound-player-screen.png"
                   alt="TikSound Player"
                   fill
                   className="object-cover"

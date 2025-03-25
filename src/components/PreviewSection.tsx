@@ -103,7 +103,7 @@ export default function PreviewSection() {
           <div className="md:w-1/2 relative">
             <div className="relative mx-auto w-[280px] h-[580px] rounded-[40px] overflow-hidden border-8 border-[#222] shadow-2xl">
               <Image
-                src="/screenshots/app-my-sounds-screen.png"
+                src="/screenshots/my-sound-screen.png"
                 alt="My Sound Library"
                 width={280}
                 height={580}
@@ -201,7 +201,7 @@ export default function PreviewSection() {
           <div className="md:w-1/2 relative">
             <div className="relative mx-auto w-[280px] h-[580px] rounded-[40px] overflow-hidden border-8 border-[#222] shadow-2xl">
               <Image
-                src="/screenshots/app-import-sound-screen.png"
+                src="/screenshots/import-sound-screen.png"
                 alt="TikSound Import Feature"
                 width={280}
                 height={580}
@@ -299,7 +299,7 @@ export default function PreviewSection() {
           <div className="md:w-1/2 relative">
             <div className="relative mx-auto w-[280px] h-[580px] rounded-[40px] overflow-hidden border-8 border-[#222] shadow-2xl">
               <Image
-                src="/screenshots/app-play-screen.png"
+                src="/screenshots/sound-player-screen.png"
                 alt="TikSound Music Player"
                 width={280}
                 height={580}

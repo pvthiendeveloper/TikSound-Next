@@ -8,7 +8,7 @@ export default function MobileAppPreview() {
           <div className="md:w-1/2 lg:w-1/3">
             <div className="relative mx-auto w-[280px] h-[580px] rounded-[40px] overflow-hidden border-8 border-[#222] shadow-2xl">
               <Image
-                src="/screenshots/app-home-screen.png"
+                src="/screenshots/home-screen.png"
                 alt="TikSound Mobile App"
                 width={280}
                 height={580}
