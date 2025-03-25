@@ -394,15 +394,6 @@ export default function FeaturesPage() {
                   key={index}
                   className="bg-gradient-to-br from-black/60 to-[#151515]/60 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden transition-transform hover:transform hover:scale-[1.02]"
                 >
-                  <div className="relative h-48 w-full overflow-hidden">
-                    <Image
-                      src={feature.imageSrc || "/placeholder-feature.jpg"}
-                      alt={feature.title}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                  </div>
                   <div className="p-6">
                     <div className="mb-4 w-12 h-12 bg-gradient-to-br from-pink-500/20 to-purple-600/20 rounded-full flex items-center justify-center text-pink-500">
                       {feature.icon}
