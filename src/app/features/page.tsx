@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -497,8 +496,8 @@ export default function FeaturesPage() {
                   </div>
                 </div>
                 <p className="text-gray-300">
-                  "TikSound has revolutionized how I find and save sounds for my
-                  content. The organization features save me hours every week!"
+                  &quot;TikSound has revolutionized how I find and save sounds for my
+                  content. The organization features save me hours every week!&quot;
                 </p>
               </div>
 
@@ -515,9 +514,9 @@ export default function FeaturesPage() {
                   </div>
                 </div>
                 <p className="text-gray-300">
-                  "Our team uses TikSound daily to collaborate on sound
+                  &quot;Our team uses TikSound daily to collaborate on sound
                   selection. The sharing capabilities and search tools are
-                  exceptional."
+                  exceptional.&quot;
                 </p>
               </div>
 
@@ -534,9 +533,9 @@ export default function FeaturesPage() {
                   </div>
                 </div>
                 <p className="text-gray-300">
-                  "The playlist feature is a game-changer. I create themed
+                  &quot;The playlist feature is a game-changer. I create themed
                   collections for different clients and can access them
-                  anywhere."
+                  anywhere.&quot;
                 </p>
               </div>
             </div>

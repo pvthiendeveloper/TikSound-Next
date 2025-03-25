@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -42,7 +41,7 @@ export default function SupportPage() {
     {
       question: "How do I import sounds from TikTok?",
       answer:
-        "Once launched, you'll be able to import sounds by simply pasting a TikTok video URL into our import tool. TikSound will automatically extract the audio and associated metadata, including creator info and thumbnails.",
+        "Once launched, you&apos;ll be able to import sounds by simply pasting a TikTok video URL into our import tool. TikSound will automatically extract the audio and associated metadata, including creator info and thumbnails.",
     },
     {
       question: "Is TikSound available on mobile devices?",
@@ -50,14 +49,14 @@ export default function SupportPage() {
         "Yes, TikSound will be available as both a web application and a mobile app for iOS and Android devices, allowing you to manage your sound library on the go.",
     },
     {
-      question: "What's included in the free plan?",
+      question: "What&apos;s included in the free plan?",
       answer:
         "The free plan includes basic features like saving up to 50 TikTok sounds, basic organization tools, and standard audio quality. For more advanced features, you can upgrade to our Pro or Business plans.",
     },
     {
       question: "Is it legal to download TikTok sounds?",
       answer:
-        "TikSound is designed for personal use only. We recommend using sounds according to TikTok's terms of service and respecting copyright laws. Always give proper credit to original creators when using their content.",
+        "TikSound is designed for personal use only. We recommend using sounds according to TikTok&apos;s terms of service and respecting copyright laws. Always give proper credit to original creators when using their content.",
     },
   ];
 
@@ -133,7 +132,7 @@ export default function SupportPage() {
               Support & Help
             </h1>
             <p className="text-xl max-w-3xl text-gray-300 mb-10">
-              Need help with TikSound? We're here to assist you every step of
+              Need help with TikSound? We&apos;re here to assist you every step of
               the way
             </p>
           </div>
@@ -225,7 +224,7 @@ export default function SupportPage() {
                 </span>
               </h2>
               <p className="text-center text-gray-400 mb-10">
-                Can't find what you're looking for? Send us a message and our
+                Can&apos;t find what you&apos;re looking for? Send us a message and our
                 team will get back to you.
               </p>
 
@@ -381,7 +380,7 @@ export default function SupportPage() {
                   </span>
                 </h2>
                 <p className="text-gray-300 mb-6">
-                  While we're primarily a remote team, you can find our
+                  While we&apos;re primarily a remote team, you can find our
                   headquarters at:
                 </p>
                 <div className="space-y-4">

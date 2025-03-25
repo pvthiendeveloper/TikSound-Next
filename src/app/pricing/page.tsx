@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -131,8 +130,8 @@ export default function PricingPage() {
               </h3>
               <p className="text-gray-300 mb-2">
                 Join our waitlist today and get{" "}
-                <span className="font-semibold text-white">3 months free</span> on
-                any paid plan when we launch. Limited time offer!
+                <span className="font-semibold text-white">3 months free</span>{" "}
+                on any paid plan when we launch. Limited time offer!
               </p>
               <div className="mt-2 flex items-center justify-center gap-4 text-xs text-gray-400">
                 <span className="flex items-center">
@@ -176,7 +175,9 @@ export default function PricingPage() {
               >
                 <span
                   className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                    billingCycle === "yearly" ? "translate-x-6" : "translate-x-0"
+                    billingCycle === "yearly"
+                      ? "translate-x-6"
+                      : "translate-x-0"
                   }`}
                 />
               </button>
@@ -221,7 +222,9 @@ export default function PricingPage() {
 
                   <div className="mb-6">
                     <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                    <p className="text-gray-400 mb-4 h-12">{plan.description}</p>
+                    <p className="text-gray-400 mb-4 h-12">
+                      {plan.description}
+                    </p>
                     <div className="flex items-baseline mb-1">
                       <span className="text-4xl font-bold">
                         $
@@ -264,60 +267,18 @@ export default function PricingPage() {
                     ))}
                   </ul>
 
-                  <div>
-                    <button
-                      onClick={() => {
-                        setSelectedPlan(plan.id);
-                        const emailInput = document.getElementById(
-                          "waitlist-email-" + plan.id
-                        );
-                        if (emailInput) {
-                          emailInput.focus();
-                        }
-                      }}
-                      className={`w-full py-3 px-4 rounded-lg font-medium text-white transition-all ${
-                        plan.highlighted
-                          ? "bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90"
-                          : "bg-white/10 hover:bg-white/20 border border-white/10"
-                      }`}
+                  <div className="mt-8">
+                    <Link
+                      href="/waitlist"
+                      className={`w-full block text-center py-3 px-4 rounded-lg font-medium transition-opacity
+                        ${
+                          plan.highlighted
+                            ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:opacity-90"
+                            : "bg-white/10 text-white hover:bg-white/20"
+                        }`}
                     >
-                      {plan.cta}
-                    </button>
-
-                    {selectedPlan === plan.id && (
-                      <div className="mt-4 p-4 bg-black/40 backdrop-blur-sm rounded-lg border border-white/10 animate-fadeIn">
-                        <form onSubmit={(e) => handleSubmit(e, plan.id)}>
-                          <label
-                            htmlFor={`waitlist-email-${plan.id}`}
-                            className="block text-sm text-gray-400 mb-2"
-                          >
-                            Join the waitlist for this plan
-                          </label>
-                          <div className="flex gap-2">
-                            <input
-                              id={`waitlist-email-${plan.id}`}
-                              type="email"
-                              value={email}
-                              onChange={(e) => setEmail(e.target.value)}
-                              placeholder="Your email"
-                              required
-                              className="flex-grow px-3 py-2 rounded-lg bg-white/10 border border-white/20 focus:border-pink-500 focus:ring-1 focus:ring-pink-500 text-white placeholder-gray-500 outline-none text-sm"
-                            />
-                            <button
-                              type="submit"
-                              className="bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 px-3 py-2 rounded-lg text-white text-sm"
-                            >
-                              Submit
-                            </button>
-                          </div>
-                        </form>
-                        {isSubmitted && (
-                          <p className="mt-3 text-green-400 text-sm">
-                            Thanks! You've been added to our waitlist.
-                          </p>
-                        )}
-                      </div>
-                    )}
+                      Join Waitlist
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -340,9 +301,9 @@ export default function PricingPage() {
                   When will TikSound launch?
                 </h3>
                 <p className="text-gray-300">
-                  We're currently in the final stages of development. Join our
-                  waitlist to be among the first to know when we launch, projected
-                  for Q1 2024.
+                  We&apos;re currently in the final stages of development. Join
+                  our waitlist to be among the first to know when we launch,
+                  projected for Q1 2024.
                 </p>
               </div>
 
@@ -357,7 +318,9 @@ export default function PricingPage() {
               </div>
 
               <div className="bg-white/5 rounded-xl p-6 border border-white/10">
-                <h3 className="text-xl font-bold mb-3">Is there a free trial?</h3>
+                <h3 className="text-xl font-bold mb-3">
+                  Is there a free trial?
+                </h3>
                 <p className="text-gray-300">
                   All paid plans come with a 14-day free trial. Early waitlist
                   subscribers get an extended 30-day trial plus 3 months free.
@@ -365,9 +328,11 @@ export default function PricingPage() {
               </div>
 
               <div className="bg-white/5 rounded-xl p-6 border border-white/10">
-                <h3 className="text-xl font-bold mb-3">Do you offer refunds?</h3>
+                <h3 className="text-xl font-bold mb-3">
+                  Do you offer refunds?
+                </h3>
                 <p className="text-gray-300">
-                  Yes, we offer a 7-day money-back guarantee if you're not
+                  Yes, we offer a 7-day money-back guarantee if you&apos;re not
                   satisfied with our service for any reason.
                 </p>
               </div>
@@ -388,8 +353,8 @@ export default function PricingPage() {
                 </h3>
                 <p className="text-gray-300">
                   You can cancel your subscription at any time from your account
-                  settings. Your access will remain until the end of your billing
-                  period.
+                  settings. Your access will remain until the end of your
+                  billing period.
                 </p>
               </div>
             </div>
@@ -403,8 +368,8 @@ export default function PricingPage() {
               Still have questions?
             </h2>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl">
-              Our team is here to help with any questions you might have about our
-              plans or features
+              Our team is here to help with any questions you might have about
+              our plans or features
             </p>
             <Link
               href="/support"

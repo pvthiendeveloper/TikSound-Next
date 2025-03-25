@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function HeroSection() {
   const [email, setEmail] = useState("");
@@ -92,7 +93,7 @@ export default function HeroSection() {
           {isSubmitted && (
             <div className="mt-3 p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
               <p className="text-center text-green-400 font-medium">
-                Thanks! You've been added to our waitlist with early access
+                Thanks! You&apos;ve been added to our waitlist with early access
                 benefits.
               </p>
             </div>
@@ -193,6 +194,36 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 mt-8">
+          <Link
+            href="/waitlist"
+            className="bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 transition-opacity text-white px-6 py-3 rounded-full font-medium text-base flex items-center justify-center"
+          >
+            Join Waitlist
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-5 h-5 ml-2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+              />
+            </svg>
+          </Link>
+
+          <Link
+            href="/features"
+            className="bg-white/10 hover:bg-white/20 transition-colors text-white px-6 py-3 rounded-full font-medium text-base"
+          >
+            Explore Features
+          </Link>
         </div>
       </div>
     </section>

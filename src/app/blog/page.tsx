@@ -22,7 +22,7 @@ const blogPosts = [
     category: "Industry News",
     date: "October 28, 2023",
     excerpt:
-      "Explore how audio has evolved on TikTok and what it means for content creators in today's digital landscape.",
+      "Explore how audio has evolved on TikTok and what it means for content creators in today&apos;s digital landscape.",
     readTime: "7 min read",
   },
   {

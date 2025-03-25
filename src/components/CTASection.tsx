@@ -88,7 +88,7 @@ export default function CTASection() {
             {isSubmitted && (
               <div className="mt-4 p-3 bg-green-500/10 border border-green-500/20 rounded-lg animate-pulse">
                 <p className="text-green-400 font-medium">
-                  You're on the list! We'll notify you when TikSound launches.
+                  You&apos;re on the list! We&apos;ll notify you when TikSound launches.
                 </p>
               </div>
             )}

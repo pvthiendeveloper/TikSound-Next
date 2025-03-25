@@ -6,7 +6,6 @@ import { useState } from "react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -190,8 +189,8 @@ export default function Navbar() {
                   </svg>
                   <p className="text-green-400 font-medium mb-1">Success!</p>
                   <p className="text-gray-300">
-                    You're on the waitlist. We'll notify you when TikSound
-                    launches.
+                    You&apos;re on the waitlist. We&apos;ll notify you when
+                    TikSound launches.
                   </p>
                 </div>
               ) : (
