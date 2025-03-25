@@ -16,12 +16,10 @@ export default function HeroSection() {
       await submitToWaitlist(email);
       setIsSubmitted(true);
       setEmail("");
-      // Reset submission status after 3 seconds
       setTimeout(() => setIsSubmitted(false), 3000);
     } catch (error) {
       console.error(error);
       setIsSubmitted(false);
-    } finally {
     }
   };
 

@@ -1,6 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { submitToWaitlist } from "@/lib/waitlist";
+import { useRef, useState } from "react";
+
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (callback: () => void) => void;
+      execute: (
+        siteKey: string,
+        options: { action: string }
+      ) => Promise<string>;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      render: (element: string | HTMLElement, options: any) => number;
+      reset: (id?: number) => void;
+    };
+  }
+}
 
 export default function WaitlistForm() {
   const [email, setEmail] = useState("");
@@ -8,6 +24,7 @@ export default function WaitlistForm() {
     "idle" | "loading" | "success" | "error"
   >("idle");
   const [message, setMessage] = useState("");
+  const recaptchaRef = useRef<number | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,25 +33,18 @@ export default function WaitlistForm() {
     setMessage("");
 
     try {
-      const response = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to join waitlist");
-      }
+      await submitToWaitlist(email);
 
       setStatus("success");
       setMessage(
         "Thanks for joining our waitlist! Check your email for confirmation."
       );
       setEmail("");
+
+      // Reset the captcha
+      if (recaptchaRef.current !== null) {
+        window.grecaptcha.reset(recaptchaRef.current);
+      }
     } catch (error) {
       setStatus("error");
       setMessage(
@@ -64,6 +74,8 @@ export default function WaitlistForm() {
             disabled={status === "loading"}
           />
         </div>
+
+        <div id="recaptcha-container" className="flex justify-center"></div>
 
         <button
           type="submit"

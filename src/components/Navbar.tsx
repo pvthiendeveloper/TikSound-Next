@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
+import { submitToWaitlist } from "@/lib/waitlist";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
-import { submitToWaitlist } from '@/lib/waitlist';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,12 +13,11 @@ export default function Navbar() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     try {
       await submitToWaitlist(email);
       setIsSubmitted(true);
       setEmail("");
-      // Reset submission status after 3 seconds and close modal
       setTimeout(() => {
         setIsSubmitted(false);
         setShowWaitlistModal(false);

@@ -8,14 +8,44 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
 const fromEmail = process.env.SENDGRID_FROM_EMAIL || "noreply@tiksound.com";
 const adminEmail = process.env.SENDGRID_ADMIN_EMAIL || "admin@tiksound.com";
 const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+
+async function verifyCaptcha(token: string) {
+  const response = await fetch(
+    "https://www.google.com/recaptcha/api/siteverify",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `secret=${recaptchaSecret}&response=${token}`,
+    }
+  );
+
+  const data = await response.json();
+  return data.success;
+}
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { email } = body;
+    const { email, captchaToken } = body;
 
     if (!email) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
+    }
+
+    if (!captchaToken) {
+      return NextResponse.json(
+        { error: "Captcha verification required" },
+        { status: 400 }
+      );
+    }
+
+    // Verify captcha
+    const isValidCaptcha = await verifyCaptcha(captchaToken);
+    if (!isValidCaptcha) {
+      return NextResponse.json({ error: "Invalid captcha" }, { status: 400 });
     }
 
     // Email validation regex

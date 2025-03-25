@@ -1,7 +1,7 @@
 "use client";
 
+import { submitToWaitlist } from "@/lib/waitlist";
 import { useState } from "react";
-import { submitToWaitlist } from '@/lib/waitlist';
 
 export default function CTASection() {
   const [email, setEmail] = useState("");
@@ -11,12 +11,11 @@ export default function CTASection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       await submitToWaitlist(email);
       setIsSubmitted(true);
       setEmail("");
-      // Reset submission status after 3 seconds
       setTimeout(() => setIsSubmitted(false), 3000);
     } catch (error) {
       console.error(error);
@@ -92,14 +91,15 @@ export default function CTASection() {
                 disabled={isSubmitting}
                 className="bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 transition-opacity px-6 py-3 rounded-lg text-white font-semibold whitespace-nowrap disabled:opacity-50"
               >
-                {isSubmitting ? 'Joining...' : 'Join Waitlist'}
+                {isSubmitting ? "Joining..." : "Join Waitlist"}
               </button>
             </form>
 
             {isSubmitted && (
               <div className="mt-4 p-3 bg-green-500/10 border border-green-500/20 rounded-lg animate-pulse">
                 <p className="text-green-400 font-medium">
-                  You&apos;re on the list! We&apos;ll notify you when TikSound launches.
+                  You&apos;re on the list! We&apos;ll notify you when TikSound
+                  launches.
                 </p>
               </div>
             )}
